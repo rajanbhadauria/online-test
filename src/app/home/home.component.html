@@ -1,0 +1,28 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+    <mat-card class="login-card" fxFlex>
+        <mat-card-header class="center">
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginForm" fxLayout="column" fxFlexAlign="center">
+                <div fxLayout="row" fxFlexAlign="center" class="row">
+                    <mat-form-field class="">
+                        <input type="email" matInput  placeholder="Email" formControlName="user_email" name="email" #emailSpy />
+                        <mat-error *ngIf="loginForm.get('user_email').hasError('required') && loginForm.get('user_email')?.touched">Email is required</mat-error>
+                        <mat-error *ngIf="loginForm.get('user_email').hasError('invalidEmail')">Please enter a valid email</mat-error>
+                      </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexAlign="center" class="row">
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" formControlName="password">
+                    </mat-form-field>
+                </div>
+               
+            </form>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end" >
+            <button mat-raised-button color="primary">Login</button>
+            <button mat-raised-button color="primary" (click)="router.navigateByUrl('/register')">Register</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgba(180, 208, 221, 0.5); }
+.row { width: 100%; margin: 0; padding: 0;}
+.login-container{
+  min-height: 100vh;
+}
+.login-card {
+    max-width: 450px;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  mat-form-field { width: 90%; margin: 0 auto;}
+  
+
+  
