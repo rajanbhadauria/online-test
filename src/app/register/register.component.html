@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+
+<mat-card class="login-card" fxFlex>
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form action="" [formGroup]="signupForm">
+      <div class="row" fxLayoutAlign="center">
+        <mat-form-field appearance="legacy">
+          <input matInput type="text" placeholder="First Name*" formControlName="first_name">
+        </mat-form-field>
+      </div>
+      <div class="row" fxLayoutAlign="center">
+        <mat-form-field appearance="legacy">
+          <input matInput type="text" placeholder="Last Name*" formControlName="last_name">
+        </mat-form-field>
+      </div>
+      <div class="row" fxLayoutAlign="center">
+        <mat-form-field appearance="legacy">
+          <input matInput type="text" placeholder="Email*" formControlName="email">
+        </mat-form-field>
+      </div>
+      <div class="row" fxLayoutAlign="center">
+        <mat-form-field appearance="legacy">
+          <input matInput type="password" placeholder="Password*" formControlName="password">
+        </mat-form-field>
+      </div>
+      <div class="row" fxLayoutAlign="center">
+        <mat-form-field appearance="legacy">
+          <input matInput type="password" placeholder="Confirm Password*" formControlName="confirm_password">
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="end start">
+    <button mat-raised-button  color="warn">Login</button>
+    <button mat-raised-button color="primary">Create</button>
+  </mat-card-actions>
+</mat-card>
+</div>
