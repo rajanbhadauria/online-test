@@ -4,38 +4,51 @@
   <mat-card-header>
     <mat-card-title>Register</mat-card-title>
   </mat-card-header>
+  <form action="" [formGroup]="signupForm" (ngSubmit)="saveUser()">
+
   <mat-card-content>
-    <form action="" [formGroup]="signupForm">
       <div class="row" fxLayoutAlign="center">
         <mat-form-field appearance="legacy">
           <input matInput type="text" placeholder="First Name*" formControlName="first_name">
+          <mat-error *ngIf="signupForm.get('first_name').invalid">First name is required.</mat-error>
         </mat-form-field>
+
       </div>
       <div class="row" fxLayoutAlign="center">
         <mat-form-field appearance="legacy">
           <input matInput type="text" placeholder="Last Name*" formControlName="last_name">
+          <mat-error *ngIf="signupForm.get('last_name').invalid">Last name is required.</mat-error>
         </mat-form-field>
       </div>
       <div class="row" fxLayoutAlign="center">
         <mat-form-field appearance="legacy">
           <input matInput type="text" placeholder="Email*" formControlName="email">
+          <mat-error *ngIf="signupForm.get('email').invalid">Email must be a valid email.</mat-error>
         </mat-form-field>
       </div>
       <div class="row" fxLayoutAlign="center">
         <mat-form-field appearance="legacy">
           <input matInput type="password" placeholder="Password*" formControlName="password">
+          <mat-error *ngIf="signupForm.get('password').invalid">Password is required.</mat-error>
         </mat-form-field>
       </div>
       <div class="row" fxLayoutAlign="center">
         <mat-form-field appearance="legacy">
-          <input matInput type="password" placeholder="Confirm Password*" formControlName="confirm_password">
+          <input type="password" placeholder="Confirm Password*" formControlName="confirm_password" matInput />
+          <mat-error *ngIf="signupForm.get('confirm_password').touched || signupForm.get('confirm_password').dirty">
+            <span *ngIf="signupForm.errors?.match_password"> Password & Confirm password must be same.</span>
+            <span *ngIf="signupForm.get('confirm_password').errors?.required">Confirm is required.</span>
+          </mat-error>
         </mat-form-field>
+
       </div>
-    </form>
+    
   </mat-card-content>
   <mat-card-actions fxLayout="row" fxLayoutAlign="end start">
     <button mat-raised-button  color="warn">Login</button>
-    <button mat-raised-button color="primary">Create</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Create</button>
   </mat-card-actions>
+</form>
+
 </mat-card>
 </div>

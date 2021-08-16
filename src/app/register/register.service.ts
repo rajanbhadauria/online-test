@@ -12,8 +12,15 @@ export class RegisterService {
   constructor(private http: HttpClient) {
 
    }
-  
+
   saveUser(userData) {
-    this.http.post(this.apiUrl+"/users/signup", userData).
+    this.http.post(this.apiUrl+"/users/signup", userData).subscribe((user: any) =>{
+      if(user.error) {
+        return user.error.message;
+      } else {
+        return user;
+      }
+
+    })
   }
 }
